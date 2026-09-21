@@ -8,7 +8,7 @@ from .three_phase_algorithm import EZ_interface
 from .LNS_algorithm import LNS_interface
 
 
-algorithms = {"ez": EZ_interface,
+algorithms = {"three phase": EZ_interface,
               "lns": LNS_interface,
               }
 

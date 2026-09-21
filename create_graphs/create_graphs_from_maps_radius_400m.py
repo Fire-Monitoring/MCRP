@@ -1,4 +1,4 @@
-from algorithms.grid_to_graph import *
+from create_graphs.grid_to_graph import *
 from Util.map_functions import *
 
 resolution = 400

@@ -25,7 +25,7 @@ def separate_matrices(array):
 
 def get_figure_path():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    figure_full_path = os.path.join(current_dir, map_carmel_name)
+    figure_full_path = os.path.join(current_dir, map_camel_name)
     return figure_full_path
 
 

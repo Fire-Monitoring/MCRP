@@ -22,4 +22,4 @@ GRAPHS_FOLDER_DICT = {"200": "graphs_r200",
                       "1000": "graphs_r1000", }
 GRAPH_RES = "400"
 
-map_carmel_name = "map_carmal.png"
+map_carmel_name = "map_carmel.png"

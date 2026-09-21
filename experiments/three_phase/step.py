@@ -19,7 +19,7 @@ time1 = time.time()
 
 for x in X:
             res = simulate_path(width_of_map_for_dynamic=15, map_name=x, n_steps_or_sorties=1, algorithm_name=alg_name,
-                          arguments=["ez", "mm 5", "step", 2], by_steps=False, duration=duration, return_results=True)
+                          arguments=["three phase", "mm 5", "step", 2], by_steps=False, duration=duration, return_results=True)
             print(f"{res}, ", end="")
             with open(file_name, 'a') as f:
                 f.write(str(res))
