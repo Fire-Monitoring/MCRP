@@ -6,16 +6,13 @@ def simulate_path(width_of_map_for_dynamic=15, map_name="carmel", n_steps_or_sor
     # boundaries: y_from, y_to, x_from, x_to
     reset_globals()
 
-    algorithms = {"deterministic_doubled_path": step_by_deterministic_path,
+    algorithms = {"deterministic_path": step_by_deterministic_path,
                   }
 
     f_next_step = algorithms[algorithm_name]
     LOCATION[0] = CHARGE_STATION[0]
 
     create_map(map_name, width_of_map_for_dynamic, boundaries)
-
-    # print([GRAPH[0][node][2] for node in GRAPH[0]])
-    # return None
 
     PATH.append(LOCATION[0])
 
@@ -28,7 +25,6 @@ def simulate_path(width_of_map_for_dynamic=15, map_name="carmel", n_steps_or_sor
     to_stop = False
     calculate_avrg_dist_from_station_and_relative_time(MAP_DYNAMIC[0])
     while not to_stop:
-        # print(count_steps, TIME[0])
         count_steps+=1
         next_location = f_next_step(LOCATION[0], arguments)
         insert_to_memory(LOCATION[0])
@@ -56,7 +52,6 @@ def simulate_path(width_of_map_for_dynamic=15, map_name="carmel", n_steps_or_sor
     total_time = TIME[0]
 
     if return_results:
-        # print("computational time:", time.time() - time_before)
         return average_uncertainty
 
     print("count_steps:", count_steps)
@@ -98,21 +93,6 @@ def move(next_location, max_duration=None):
         if next_location is not None:
             MAP_DYNAMIC[0][next_location] = 0
     PATH.append(next_location)
-
-    if next_location==NORMALIZED_CHARGE_STATION[0] and len(INTERVALS_LIST)>=INTERVAL_LIST_LENGTH:
-        if LINEAR_MODEL_TYPE[0] in ["dist", "value", "quotient"]:
-            X_dict = {"dist": DIST_LIST, "value": APRIORI_VALUES_LIST, "quotient": QUOTIENT_LIST}
-            X = X_dict[LINEAR_MODEL_TYPE[0]]
-            convexity, slope, intercept = trend_line(X, INTERVALS_LIST, True)
-            TREND_LINE[0] = slope
-            TREND_LINE[1] = intercept
-            CONVEXITY[0] = convexity
-        if LINEAR_MODEL_TYPE[0]=="comb":
-            X1 = DIST_LIST
-            X2 = APRIORI_VALUES_LIST
-            coefficients, intercept = multilinear_regression(X1, X2, INTERVALS_LIST, True)
-            TREND_LINE[0] = list(coefficients)
-            TREND_LINE[1] = intercept
 
 
 

@@ -175,18 +175,25 @@ def create_map(map_name="carmel", width_of_map_for_dynamic=15, boundaries=None):
     elif map_name=="random":
         map_apriori, orig_map_outbreak = soft_random_map(MAP_WIDTH_RANDOM, K_BLUR)
     else:
-        map_apriori, orig_map_outbreak = get_generated_map(map_name, boundaries)
+        if type(map_name) is tuple:
+            index = map_name[0]
+        else:
+            index = map_name
+        map_apriori, orig_map_outbreak = get_generated_map(index, boundaries)
 
-    if type(map_name)==int and GRAPH_FLAG[0]:
+    if type(map_name) in [int, tuple] and GRAPH_FLAG[0]:
         NORMALIZED_CHARGE_STATION[0] = CHARGE_STATION[0]
         LOCATION[0] = NORMALIZED_CHARGE_STATION[0]
+        GRAPH[0][NORMALIZED_CHARGE_STATION[0]] = ([NORMALIZED_CHARGE_STATION[0]], 0, 0)
+
+        if type(map_name) is tuple:
+            orig_map_outbreak = top_k_nodes(orig_map_outbreak, map_name[1], NORMALIZED_CHARGE_STATION[0])
 
         orig_map, map_apriori = map_apriori
         map_apriori[NORMALIZED_CHARGE_STATION[0]] = 0
         orig_map_outbreak[NORMALIZED_CHARGE_STATION[0]] = 0
-        GRAPH[0][NORMALIZED_CHARGE_STATION[0]] = ([NORMALIZED_CHARGE_STATION[0]], 0, 0)
-        MAP_APRIORI[0] = copy.deepcopy(map_apriori)
-        MAP_DYNAMIC[0] = map_apriori
+        MAP_APRIORI[0] = {node: map_apriori[node] for node in orig_map_outbreak.keys()}
+        MAP_DYNAMIC[0] = {node: map_apriori[node] for node in orig_map_outbreak.keys()}
         MAP_OUTBREAK[0] = orig_map_outbreak
         MAP_ORIG[0] = orig_map
         return

@@ -6,9 +6,11 @@ from Util.demo_sim import *
 from .alg_configurations import alg_configurations
 from .three_phase_algorithm import EZ_interface
 from .LNS_algorithm import LNS_interface
+from two_phase_algorithm import brideau_cavalier_interface
 
 
-algorithms = {"three phase": EZ_interface,
+algorithms = {"two phase": brideau_cavalier_interface,
+              "three phase": EZ_interface,
               "lns": LNS_interface,
               }
 

@@ -5,7 +5,7 @@ warnings.filterwarnings('ignore')
 
 X = range(70)
 DEC_PROCEDURE[0] = "future"
-alg_name = "deterministic_doubled_path"
+alg_name = "deterministic_path"
 file_name = f'future_constant.txt'
 
 DRONE_SPEED[0] = DRONE_SPEED[0]

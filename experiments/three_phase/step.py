@@ -4,7 +4,7 @@ import json
 warnings.filterwarnings('ignore')
 
 X = range(70)
-alg_name = "deterministic_doubled_path"
+alg_name = "deterministic_path"
 file_name = f'step.txt'
 
 DRONE_SPEED[0] = DRONE_SPEED[0]

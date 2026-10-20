@@ -14,7 +14,7 @@ configurations_for_three_phase = {
 }
 
 configurations_for_lns = {
-    "regular": {
+    "100000 non imp": {
         "temperature": 0.1,
         "cooling": 0.99975,
         "step_size": 50,
@@ -27,7 +27,7 @@ configurations_for_lns = {
         "n_non_imp_to_stop": 100000,
         "max_iterations": 250000,
     },
-    "short": {
+    "10000 non imp": {
         "temperature": 0.1,
         "cooling": 0.99975,
         "step_size": 50,
@@ -46,4 +46,5 @@ configurations_for_lns = {
 alg_configurations = {
                       "three phase": configurations_for_three_phase,
                       "lns": configurations_for_lns,
+                      "two phase": {None: None}
                      }

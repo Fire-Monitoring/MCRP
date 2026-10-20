@@ -53,7 +53,7 @@ import json
 
 N_SORTIES = 5
 MAP_INDEX = 0
-N_NODES = 20
+N_NODES = 10
 
 DEPOT = 0
 
@@ -62,7 +62,7 @@ DEPOT = 0
 MAX_POSITIONS_PER_SORTIE = None
 
 TIME_LIMIT = None
-MIP_GAP = 0.0
+MIP_GAP = 1e-4
 MIP_GAP_ABS = 1e-9
 OUTPUT_FLAG = 1
 
