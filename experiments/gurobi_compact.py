@@ -51,7 +51,7 @@ import json
 # Settings
 # ---------------------------------------------------------------------------
 
-N_SORTIES = 5
+N_SORTIES = 3
 MAP_INDEX = 0
 N_NODES = 10
 

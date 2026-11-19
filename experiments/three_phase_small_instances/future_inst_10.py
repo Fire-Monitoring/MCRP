@@ -10,7 +10,7 @@ file_name = f'future_inst_10_nodes.txt'
 
 DRONE_SPEED[0] = DRONE_SPEED[0]
 res_dict = dict()
-duration = MAXIMUM_SORTIE_TIME[0]*N_SORTIES_IN_MISSION[0]
+duration = MAXIMUM_SORTIE_TIME[0]*3
 print("[", end="")
 with open(file_name, 'a') as f:
             f.write("[")

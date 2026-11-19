@@ -9,7 +9,7 @@ file_name = f'two_phase_constant.txt'
 
 DRONE_SPEED[0] = DRONE_SPEED[0]
 res_dict = dict()
-duration = max(MAXIMUM_SORTIE_TIME[0], TIME_TO_MAX_RISK)*N_SORTIES_IN_MISSION[0]
+duration = MAXIMUM_SORTIE_TIME[0]*N_SORTIES_IN_MISSION[0]
 print("[", end="")
 with open(file_name, 'a') as f:
             f.write("[")
